@@ -5,4 +5,8 @@
 
 void run();
 
+void add_ui();
+
+void print_menu();
+
 #endif // !UI_H_

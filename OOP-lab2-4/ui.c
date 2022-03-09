@@ -1,6 +1,24 @@
 #include "service.h"
 #include <stdio.h>
 
+void print_menu() {
+	printf("1. Adaugare cheltuiala\n");
+	printf("0. Exit\n");
+
+}
+
+void add_ui() {
+	/*
+	UI pentru adaugarea unei cheltuieli
+	*/
+	int zi, suma;
+	char tip[20];
+	scanf_s("%d", &zi);
+	scanf_s("%d", &suma);
+	//scanf_s("%s", tip);
+	add(zi, suma, tip);
+}
+
 void run() {
 	//char cmd[20];
 	int cmd;
@@ -19,21 +37,5 @@ void run() {
 	}
 }
 
-void add_ui() {
-	/*
-	UI pentru adaugarea unei cheltuieli
-	*/
-	int zi, suma;
-	char tip[20];
-	scanf_s("%d", &zi);
-	scanf_s("%d", &suma);
-	//scanf_s("%s", tip);
-	add(zi, suma, tip);
 
-}
 
-void print_menu() {
-	printf("1. Adaugare cheltuiala\n");
-	printf("0. Exit\n");
-
-}

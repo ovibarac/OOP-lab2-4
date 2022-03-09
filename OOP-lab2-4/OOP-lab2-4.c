@@ -16,6 +16,8 @@ int main()
     printf("%d", (*(cheltuieli + 1)).suma);
     printf("%s", (*(cheltuieli+ 1)).tip);
     printf("%d", get_size());*/
+
+
     test_get_cheltuieli();
     test_get_lungime();
     test_add_cheltuiala();

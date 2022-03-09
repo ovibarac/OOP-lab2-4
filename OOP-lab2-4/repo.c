@@ -54,14 +54,15 @@ void test_add_cheltuiala() {
 	Testeaza adaugarea unei cheluieli
 	*/
 	int cn = n;
-	cheltuiala ch[20] = get_cheltuieli();
-	
+	cheltuiala ch[20];
+	for (int i = 0; i <= n; i++) {
+		ch[i] = cheltuieli[i];
+	}
+
 	add_cheltuiala(3, 300, "mancare");
 
 	assert(n == cn + 1);
 	assert(cheltuieli[n - 1].zi == 3);
 	assert(cheltuieli[n - 1].suma == 300);
 	assert(strcmp(cheltuieli[n - 1].tip, "mancare") == 0);
-	
-
 }
