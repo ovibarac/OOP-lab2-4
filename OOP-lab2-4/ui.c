@@ -15,7 +15,7 @@ void add_ui() {
 	char tip[20];
 	scanf_s("%d", &zi);
 	scanf_s("%d", &suma);
-	//scanf_s("%s", tip);
+	scanf_s("%s", tip);
 	add(zi, suma, tip);
 }
 
@@ -36,6 +36,3 @@ void run() {
 		}
 	}
 }
-
-
-
