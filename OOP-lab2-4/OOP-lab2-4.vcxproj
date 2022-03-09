@@ -144,12 +144,14 @@
     <ClCompile Include="repo.c" />
     <ClCompile Include="service.c" />
     <ClCompile Include="ui.c" />
+    <ClCompile Include="validator.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cheltuiala.h" />
     <ClInclude Include="repo.h" />
     <ClInclude Include="service.h" />
     <ClInclude Include="ui.h" />
+    <ClInclude Include="validator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

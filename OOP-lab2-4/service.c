@@ -3,9 +3,9 @@
 void add(int zi, int suma, char tip[]) {
 	/*
 	Adauga o noua cheltuiala si valideaza
-	zi: ziua  in care s-a efectuat cheltuiala
-	suma: suma cheltuielii
-	tip: tipul cheltuielii "mancare, transport, telefon&internet, inbracaminte, altele"
+	zi: int > 0, ziua  in care s-a efectuat cheltuiala
+	suma: int > 0, suma cheltuielii
+	tip: sir caractere, tipul cheltuielii "mancare, transport, telefon&internet, inbracaminte, altele"
 	*/
 	
 	//validare
