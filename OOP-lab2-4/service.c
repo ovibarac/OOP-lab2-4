@@ -25,6 +25,22 @@ void add(int zi, int suma, char tip[]) {
 	}
 }
 
+void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[]) {
+	/*
+	Modifica o cheltuiala
+	zi: int > 0, ziua  cheltuielii cautate
+	suma: int > 0, suma cheltuielii cautate
+	tip: sir caractere, tipul cheltuielii cautate
+	new_zi: int > 0, ziua  modificata
+	new_suma: int > 0, suma modificata
+	new_tip: sir caractere, tipul modificat
+	*/
+	cheltuiala* ch = find(zi, suma, tip);
+	ch->zi = new_zi;
+	ch->suma = new_suma;
+	strcpy_s(ch->tip, 19, new_tip);
+}
+
 cheltuiala * get_list() {
 	/*
 	Returneaza lista de cheltuieli

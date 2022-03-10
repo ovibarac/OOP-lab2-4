@@ -12,6 +12,17 @@ tip: sir caractere, tipul cheltuielii "mancare, transport, telefon&internet, inb
 void add(int zi, int suma, char tip[]);
 
 /*
+Modifica o cheltuiala
+zi: int > 0, ziua  cheltuielii cautate
+suma: int > 0, suma cheltuielii cautate
+tip: sir caractere, tipul cheltuielii cautate
+new_zi: int > 0, ziua  modificata
+new_suma: int > 0, suma modificata
+new_tip: sir caractere, tipul modificat
+*/
+void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[]);
+
+/*
 Returneaza lista de cheltuieli
 rtype: pointer la cheltuiala
 */

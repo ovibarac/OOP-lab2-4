@@ -16,6 +16,7 @@ void tests() {
     test_get_cheltuieli_srv();
     test_get_lungime_srv();
     test_add_cheltuiala_srv();
+    test_find_cheltuieli();
 }
 
 int main()

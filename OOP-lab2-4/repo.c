@@ -16,9 +16,6 @@ void add_cheltuiala(int zi, int suma, char tip[]) {
 	cheltuieli[n].suma = suma;
 	strcpy_s(cheltuieli[n].tip, 20, tip);
 	n++;
-	printf("%d", cheltuieli[n-1].zi);
-	printf("%d", cheltuieli[n - 1].suma);
-	printf("%s", cheltuieli[n - 1].tip);
 }
 
 cheltuiala * get_cheltuieli() {
@@ -28,6 +25,23 @@ cheltuiala * get_cheltuieli() {
 	*/
 	return cheltuieli;
 }
+
+cheltuiala* find_cheltuiala(int zi, int suma, char tip[]) {
+	/*
+	Gaseste o cheltuiala dupa atribute
+	rtype: pointer la cheltuiala
+	zi: int > 0, ziua  in care s-a efectuat cheltuiala
+	suma: int > 0, suma cheltuielii
+	tip: sir caractere, tipul cheltuielii "mancare, transport, telefon&internet, inbracaminte, altele"
+	return: pointer la cheltuiala
+	*/
+	for (int i = 0; i < n; i++) {
+		if (zi == cheltuieli[i].zi && suma == cheltuieli[i].suma && strcmp(tip, cheltuieli[i].tip) == 0)  {
+			return &cheltuieli[i];
+		}
+	}
+}
+
 
 int get_lungime() {
 	/*
@@ -69,4 +83,21 @@ void test_add_cheltuiala() {
 	assert(strcmp(cheltuieli[n - 1].tip, "mancare") == 0);
 
 	n = cn;
+}
+
+void test_find_cheltuieli() {
+	/*
+	Testeaza gasirea unei cheltuieli
+	*/
+
+	cheltuiala ch;
+	ch.zi = 1;
+	ch.suma = 2;
+
+	strcpy_s(ch.tip, 19, "mancare");
+	add_cheltuiala(1, 2, "mancare");
+	cheltuiala* c = find_cheltuiala(1, 2, "mancare");
+	assert(c->zi == 1);
+	assert(c->suma == 2);
+	assert(strcmp(c->tip, "mancare") == 0);
 }
