@@ -14,4 +14,5 @@ typedef struct cheltuiala {
 	int suma;
 	char tip[20];
 }cheltuiala;
+
 #endif // !CHELTUIALA_H_

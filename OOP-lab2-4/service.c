@@ -1,4 +1,7 @@
 #include "repo.h"
+#include "validator.h"
+#include <stdio.h>
+#include <assert.h>
 
 void add(int zi, int suma, char tip[]) {
 	/*
@@ -9,7 +12,17 @@ void add(int zi, int suma, char tip[]) {
 	*/
 	
 	//validare
-	add_cheltuiala(zi, suma, tip);
+	int nr_err = 0;
+	char errors[5][100];
+	validate(zi, suma, tip, errors, &nr_err);
+	if (nr_err == 0) {
+		add_cheltuiala(zi, suma, tip);
+	}
+	else {
+		for (int i = 0; i < nr_err; i++) {
+			printf("%s\n", errors[i]);
+		}
+	}
 }
 
 cheltuiala * get_list() {
@@ -26,4 +39,46 @@ int get_size() {
 	rtype: int >= 0
 	*/
 	return get_lungime();
+}
+
+void test_get_cheltuieli_srv() {
+	/*
+	Testeaza obtinerea listei
+	*/
+	assert(get_cheltuieli() == get_list());
+}
+
+void test_get_lungime_srv() {
+	/*
+	Testeaza obtinerea lungimii listei
+	*/
+	int n1 = get_size();
+	int n2 = get_lungime();
+	assert(n1 == n2);
+}
+
+void test_add_cheltuiala_srv() {
+	/*
+	Testeaza adaugarea unei cheluieli
+	*/
+	char errors[5][100];
+	int nr_err = 0;
+	int zi = 2;
+	int suma = 20;
+	char tip[20];
+
+	strcpy_s(tip, 19, "mancare");
+	validate(zi, suma, tip, errors, &nr_err);
+	assert(nr_err == 0);
+
+	add(zi, suma, tip);
+	cheltuiala* ch = get_list();
+	int n = get_size();
+
+	assert(ch[n - 1].zi == 2);
+	assert(ch[n - 1].suma == 20);
+	assert(strcmp(ch[n - 1].tip, "mancare") == 0);
+
+	
+
 }

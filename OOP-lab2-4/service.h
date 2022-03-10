@@ -3,10 +3,39 @@
 #pragma once
 #include "repo.h"
 
+/*
+Adauga o noua cheltuiala si valideaza
+zi: int > 0, ziua  in care s-a efectuat cheltuiala
+suma: int > 0, suma cheltuielii
+tip: sir caractere, tipul cheltuielii "mancare, transport, telefon&internet, inbracaminte, altele"
+*/
 void add(int zi, int suma, char tip[]);
 
+/*
+Returneaza lista de cheltuieli
+rtype: pointer la cheltuiala
+*/
 cheltuiala* get_list();
 
+/*
+Returneaza lungimea listei de cheltuieli
+rtype: int >= 0
+*/
 int get_size();
+
+/*
+Testeaza obtinerea listei
+*/
+void test_get_cheltuieli_srv();
+
+/*
+Testeaza obtinerea lungimii listei
+*/
+void test_get_lungime_srv();
+
+/*
+Testeaza adaugarea unei cheluieli
+*/
+void test_add_cheltuiala_srv();
 
 #endif // !SERVICE_H_

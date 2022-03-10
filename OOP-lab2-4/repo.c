@@ -16,7 +16,9 @@ void add_cheltuiala(int zi, int suma, char tip[]) {
 	cheltuieli[n].suma = suma;
 	strcpy_s(cheltuieli[n].tip, 20, tip);
 	n++;
-	//validare
+	printf("%d", cheltuieli[n-1].zi);
+	printf("%d", cheltuieli[n - 1].suma);
+	printf("%s", cheltuieli[n - 1].tip);
 }
 
 cheltuiala * get_cheltuieli() {
@@ -65,4 +67,6 @@ void test_add_cheltuiala() {
 	assert(cheltuieli[n - 1].zi == 3);
 	assert(cheltuieli[n - 1].suma == 300);
 	assert(strcmp(cheltuieli[n - 1].tip, "mancare") == 0);
+
+	n = cn;
 }
