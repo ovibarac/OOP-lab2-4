@@ -8,6 +8,19 @@ void print_menu() {
 	printf("0. Exit\n");
 }
 
+void print_list() {
+	/*
+	Printeaza lista curenta de cheltuieli
+	*/
+	cheltuiala* ch = get_list();
+	int n = get_size();
+	if (n != 0) {
+		for (int i = 0; i < n; i++) {
+			printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, ch[i].zi, ch[i].suma, ch[i].tip);
+		}
+	}
+}
+
 void add_ui() {
 	/*
 	UI pentru adaugarea unei cheltuieli
@@ -49,10 +62,11 @@ void mod_ui() {
 
 
 void run() {
-	int cmd=0;
+
 	while (1) {
 		print_menu();
 		printf("\nGive command: ");
+		int cmd = 0;
 		scanf_s("%d", &cmd);
 
 		if (cmd == 1) {
@@ -60,6 +74,9 @@ void run() {
 		}
 		else if (cmd == 2) {
 			mod_ui();
+		}
+		else if (cmd == 4) {
+			print_list();
 		}
 		else if (cmd == 0) {
 			return;

@@ -38,9 +38,12 @@ void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[])
 	new_tip: sir caractere, tipul modificat
 	*/
 	cheltuiala* ch = find_cheltuiala(zi, suma, tip);
-	ch->zi = new_zi;
-	ch->suma = new_suma;
-	strcpy_s(ch->tip, 19, new_tip);
+	if (ch != NULL) {
+		ch->zi = new_zi;
+		ch->suma = new_suma;
+		strcpy_s(ch->tip, 19, new_tip);
+	}
+	
 }
 
 cheltuiala * get_list() {

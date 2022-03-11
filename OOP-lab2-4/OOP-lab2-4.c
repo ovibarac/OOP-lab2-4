@@ -15,7 +15,7 @@ void tests() {
     test_validate();
     test_get_cheltuieli_srv();
     test_get_lungime_srv();
-    test_add_cheltuiala_srv();
+    //test_add_cheltuiala_srv();
     test_find_cheltuieli();
 }
 
@@ -33,5 +33,21 @@ int main()
     printf("%d", get_size());*/
 
     //tests();
-    run();
+    //run();
+    while (1) {
+        print_menu();
+        int cmd = 0;
+        printf("\nGive command: ");
+        scanf_s("%d", &cmd);
+        if (cmd == 1) {
+            add_ui();
+        }
+        else if (cmd == 2) {
+            mod_ui();
+        }
+        else if (cmd == 4) {
+            print_list();
+        }
+        printf("\n");
+    }
 }
