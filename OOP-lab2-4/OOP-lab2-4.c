@@ -32,6 +32,6 @@ int main()
     printf("%s", (*(cheltuieli+ 1)).tip);
     printf("%d", get_size());*/
 
-    tests();
+    //tests();
     run();
 }

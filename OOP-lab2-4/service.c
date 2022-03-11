@@ -2,6 +2,8 @@
 #include "validator.h"
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
+#include "cheltuiala.h"
 
 void add(int zi, int suma, char tip[]) {
 	/*
@@ -35,7 +37,7 @@ void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[])
 	new_suma: int > 0, suma modificata
 	new_tip: sir caractere, tipul modificat
 	*/
-	cheltuiala* ch = find(zi, suma, tip);
+	cheltuiala* ch = find_cheltuiala(zi, suma, tip);
 	ch->zi = new_zi;
 	ch->suma = new_suma;
 	strcpy_s(ch->tip, 19, new_tip);

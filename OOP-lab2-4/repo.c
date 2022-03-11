@@ -2,7 +2,7 @@
 #include <string.h>
 #include <assert.h>
 
-cheltuiala cheltuieli[20];
+cheltuiala cheltuieli[400];
 int n = 0;
 
 void add_cheltuiala(int zi, int suma, char tip[]) {
