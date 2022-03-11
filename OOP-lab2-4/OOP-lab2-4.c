@@ -15,25 +15,12 @@ void tests() {
     test_validate();
     test_get_cheltuieli_srv();
     test_get_lungime_srv();
-    //test_add_cheltuiala_srv();
+    test_add_cheltuiala_srv();
     test_find_cheltuieli();
+    test_mod();
 }
 
-int main()
-{
-    /*cheltuiala* cheltuieli = get_list();
-    add(1, 20, "altele");
-    printf("%d", (*cheltuieli).zi);
-    printf("%d", (*cheltuieli).suma);
-    printf("%s", (*cheltuieli).tip);
-    add(2, 40, "caca");
-    printf("%d", (*(cheltuieli + 1)).zi);
-    printf("%d", (*(cheltuieli + 1)).suma);
-    printf("%s", (*(cheltuieli+ 1)).tip);
-    printf("%d", get_size());*/
-
-    tests();
-    //run();
+void buget() {
     generate();
     while (1) {
         print_menu();
@@ -53,8 +40,16 @@ int main()
             print_list();
         }
         else if (cmd == 0) {
-            return 0;
+            return;
         }
         printf("\n");
     }
 }
+
+int main()
+{
+    tests();
+    buget();
+}
+
+

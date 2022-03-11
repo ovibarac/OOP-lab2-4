@@ -20,11 +20,7 @@ void add(int zi, int suma, char tip[]) {
 	if (nr_err == 0) {
 		add_cheltuiala(zi, suma, tip);
 	}
-	else {
-		for (int i = 0; i < nr_err; i++) {
-			printf("%s\n", errors[i]);
-		}
-	}
+	else {for (int i = 0; i < nr_err; i++) {printf("%s\n", errors[i]);}}
 }
 
 void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[]) {
@@ -48,13 +44,7 @@ void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[])
 			strcpy_s(ch->tip, 19, new_tip);
 		}
 	}
-	else {
-		for (int i = 0; i < nr_err; i++) {
-			printf("%s\n", errors[i]);
-		}
-	}
-
-	
+	else {for (int i = 0; i < nr_err; i++) {printf("%s\n", errors[i]);}}
 }
 
 cheltuiala * get_list() {
@@ -110,4 +100,27 @@ void test_add_cheltuiala_srv() {
 	assert(ch[n - 1].zi == 2);
 	assert(ch[n - 1].suma == 20);
 	assert(strcmp(ch[n - 1].tip, "mancare") == 0);
+}
+
+void test_mod() {
+	/*
+	Testeaza modificarea unei cheltuieli
+	*/
+	char errors[5][100];
+	int nr_err = 0;
+	int zi = 2;
+	int suma = 20;
+	char tip[20];
+	strcpy_s(tip, 19, "mancare");
+	validate(zi, suma, tip, errors, &nr_err);
+
+	add(zi, suma, tip);
+	cheltuiala* ch = get_list();
+	int n = get_size();
+
+	cheltuiala* fc = find_cheltuiala(zi, suma, tip);
+	mod(zi, suma, tip, 3, 3, "altele");
+	assert(fc->zi == 3);
+	assert(fc->suma == 3);
+	assert(strcmp(fc->tip, "altele") == 0);
 }
