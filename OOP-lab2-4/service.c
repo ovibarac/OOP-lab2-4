@@ -37,12 +37,23 @@ void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[])
 	new_suma: int > 0, suma modificata
 	new_tip: sir caractere, tipul modificat
 	*/
-	cheltuiala* ch = find_cheltuiala(zi, suma, tip);
-	if (ch != NULL) {
-		ch->zi = new_zi;
-		ch->suma = new_suma;
-		strcpy_s(ch->tip, 19, new_tip);
+	int nr_err = 0;
+	char errors[5][100];
+	validate(new_zi, new_suma, new_tip, errors, &nr_err);
+	if (nr_err == 0) {
+		cheltuiala* ch = find_cheltuiala(zi, suma, tip);
+		if (ch != NULL) {
+			ch->zi = new_zi;
+			ch->suma = new_suma;
+			strcpy_s(ch->tip, 19, new_tip);
+		}
 	}
+	else {
+		for (int i = 0; i < nr_err; i++) {
+			printf("%s\n", errors[i]);
+		}
+	}
+
 	
 }
 
@@ -99,7 +110,4 @@ void test_add_cheltuiala_srv() {
 	assert(ch[n - 1].zi == 2);
 	assert(ch[n - 1].suma == 20);
 	assert(strcmp(ch[n - 1].tip, "mancare") == 0);
-
-	
-
 }

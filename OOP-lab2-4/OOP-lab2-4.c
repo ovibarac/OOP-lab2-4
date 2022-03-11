@@ -32,8 +32,9 @@ int main()
     printf("%s", (*(cheltuieli+ 1)).tip);
     printf("%d", get_size());*/
 
-    //tests();
+    tests();
     //run();
+    generate();
     while (1) {
         print_menu();
         int cmd = 0;
@@ -45,8 +46,14 @@ int main()
         else if (cmd == 2) {
             mod_ui();
         }
+        else if (cmd == 3) {
+            filtrare_prop();
+        }
         else if (cmd == 4) {
             print_list();
+        }
+        else if (cmd == 0) {
+            return 0;
         }
         printf("\n");
     }
