@@ -62,6 +62,8 @@ return the overwritten element
 */
 ElemType set(Lista* l, int poz, cheltuiala p);
 
+Lista copyList(Lista* l);
+
 /*
 Testeaza crearea listei
 */

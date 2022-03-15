@@ -22,7 +22,7 @@ void tests() {
 
 void buget() {
     Buget b = createBuget();
-    //generate();
+    generate(&b);
     while (1) {
         print_menu(&b);
         int cmd = 0;
@@ -43,10 +43,12 @@ void buget() {
         else if (cmd == 5) {
             filtrare_prop(&b);
         }
-        /*
+        else if (cmd == 6) {
+            sortare_ui(&b);
+        }
         else if (cmd == 0) {
             return;
-        }*/
+        }
         printf("\n");
     }
 }

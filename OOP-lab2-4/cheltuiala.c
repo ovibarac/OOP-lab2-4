@@ -32,6 +32,10 @@ void destroyCheltuiala(cheltuiala* ch) {
 	ch->tip = NULL;
 }
 
+cheltuiala copyCh(cheltuiala* c) {
+	return createCheltuiala(c->zi, c->suma, c->tip);
+}
+
 void testCreateDestroy() {
 	/*
 	Testeaza crearea si distrugerea

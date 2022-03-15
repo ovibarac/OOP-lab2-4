@@ -38,6 +38,20 @@ new_tip: sir caractere, tipul modificat
 void mod(cheltuiala* ch, int new_zi, int new_suma, char new_tip[]);
 
 /*
+Sorteaza lista dupa suma
+l: pointer la lista
+reverse: 1 daca se sorteaza descrescator, 0 altfel
+*/
+Lista sortBySuma(Buget* b, int reverse);
+
+/*
+Sorteaza lista dupa tip
+l: pointer la lista
+reverse: 1 daca se sorteaza descrescator, 0 altfel
+*/
+Lista sortByTip(Buget* b, int reverse);
+
+/*
 Testeaza adaugarea unei cheluieli
 */
 void test_add_cheltuiala_srv();

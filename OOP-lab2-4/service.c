@@ -45,7 +45,13 @@ void addCheltuiala(Buget* b, int zi, int suma, char tip[]) {
 }
 
 void mod(cheltuiala* ch, int new_zi, int new_suma, char new_tip[]) {
-	
+	/*
+	Modifica o cheltuiala
+	ch: pointer la cheltuiala de modificat
+	new_zi: int > 0, ziua  modificata
+	new_suma: int > 0, suma modificata
+	new_tip: sir caractere, tipul modificat
+	*/
 	int nr_err = 0;
 	char errors[5][100];
 	validate(new_zi, new_suma, new_tip, errors, &nr_err);
@@ -58,6 +64,86 @@ void mod(cheltuiala* ch, int new_zi, int new_suma, char new_tip[]) {
 		}
 	}
 	else { for (int i = 0; i < nr_err; i++) { printf("%s\n", errors[i]); } }
+}
+
+Lista sortBySuma(Buget* b, int reverse) {
+	/*
+	Sorteaza lista dupa suma
+	l: pointer la lista
+	reverse: 1 daca se sorteaza descrescator, 0 altfel
+	*/
+	Lista l = copyList(&b->allCh);
+
+	if (reverse == 0) {
+		int i, j;
+		for (i = 0; i < size(&l); i++) {
+			for (j = i + 1; j < size(&l); j++) {
+				cheltuiala p1 = get(&l, i);
+				cheltuiala p2 = get(&l, j);
+				if (p1.suma > p2.suma) {
+					//interschimbam
+					set(&l, i, p2);
+					set(&l, j, p1);
+				}
+			}
+		}
+	}
+	else {
+		int i, j;
+		for (i = 0; i < size(&l); i++) {
+			for (j = i + 1; j < size(&l); j++) {
+				cheltuiala p1 = get(&l, i);
+				cheltuiala p2 = get(&l, j);
+				if (p1.suma < p2.suma) {
+					//interschimbam
+					set(&l, i, p2);
+					set(&l, j, p1);
+				}
+			}
+		}
+	}
+
+	return l;
+}
+
+Lista sortByTip(Buget* b, int reverse) {
+	/*
+	Sorteaza lista dupa tip
+	l: pointer la lista
+	reverse: 1 daca se sorteaza descrescator, 0 altfel
+	*/
+	Lista l = copyList(&b->allCh);
+
+	if (reverse == 0) {
+		int i, j;
+		for (i = 0; i < size(&l); i++) {
+			for (j = i + 1; j < size(&l); j++) {
+				cheltuiala p1 = get(&l, i);
+				cheltuiala p2 = get(&l, j);
+				if (strcmp(p1.tip, p2.tip) > 0) {
+					//interschimbam
+					set(&l, i, p2);
+					set(&l, j, p1);
+				}
+			}
+		}
+	}
+	else {
+		int i, j;
+		for (i = 0; i < size(&l); i++) {
+			for (j = i + 1; j < size(&l); j++) {
+				cheltuiala p1 = get(&l, i);
+				cheltuiala p2 = get(&l, j);
+				if (strcmp(p1.tip, p2.tip) < 0) {
+					//interschimbam
+					set(&l, i, p2);
+					set(&l, j, p1);
+				}
+			}
+		}
+	}
+
+	return l;
 }
 
 /*

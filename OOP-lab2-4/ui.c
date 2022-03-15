@@ -1,12 +1,25 @@
 #include "service.h"
 #include <stdio.h>
 
+void generate(Buget* b) {
+	/*
+	Genereaza o lista de cheltuieli
+	*/
+	addCheltuiala(b, 3, 20, "mancare");
+	addCheltuiala(b, 5, 20, "altele");
+	addCheltuiala(b, 15, 200, "transport");
+	addCheltuiala(b, 20, 19, "mancare");
+	addCheltuiala(b, 1, 200, "transport");
+	addCheltuiala(b, 4, 50, "altele");
+}
+
 void print_menu(Buget* b) {
 	printf("1. Adaugare cheltuiala\n");
 	printf("2. Modificare cheltuiala\n");
 	printf("3. Stergere cheltuiala\n");
 	printf("4. Afiseaza lista\n");
 	printf("5. Filtrare dupa proprietate (zi, suma, tip)\n");
+	printf("6. Sortare\n");
 	printf("0. Exit\n");
 }
 
@@ -116,4 +129,46 @@ void filtrare_prop(Buget* b) {
 				printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, b->allCh.elems[i].zi, b->allCh.elems[i].suma, b->allCh.elems[i].tip);
 		}
 	}
+}
+
+void sortare_ui(Buget* b) {
+	printf("Ordonare dupa:\n");
+	printf("1. Suma\n");
+	printf("2. Tip\n");
+	int c = 0;
+	scanf_s("%d", &c);
+	Lista l;
+	if (c == 1) {
+		printf("Ordine:\n");
+		printf("1. Crescatoare\n");
+		printf("2. Descrescatoare\n");
+		int r = 0;
+		scanf_s("%d", &r);
+		if (r == 1) {
+			l = sortBySuma(b, 0);
+
+		}
+		else if (r == 2) {
+			l = sortBySuma(b, 1);
+		}
+	}
+	else if(c == 2) {
+		printf("Ordine:\n");
+		printf("1. Crescatoare\n");
+		printf("2. Descrescatoare\n");
+		int r = 0;
+		scanf_s("%d", &r);
+		if (r == 1) {
+			l = sortByTip(b, 0);
+		}
+		else if (r == 2) {
+			l = sortByTip(b, 1);
+		}
+	}
+	Buget srtbgt;
+	srtbgt.allCh = copyList(&l);
+	print_list(&srtbgt);
+
+	destroy(&l);
+	destroyBuget(&srtbgt);
 }

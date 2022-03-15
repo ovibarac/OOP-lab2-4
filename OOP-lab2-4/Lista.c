@@ -127,6 +127,15 @@ ElemType set(Lista* l, int poz, cheltuiala p) {
 	return rez;
 }
 
+Lista copyList(Lista* l) {
+	Lista rez = createEmpty();
+	for (int i = 0; i < size(l); i++) {
+		ElemType p = get(l, i);
+		add(&rez, copyCh(&p));
+	}
+	return rez;
+}
+
 void testCreateList() {
 	/*
 	Testeaza crearea listei

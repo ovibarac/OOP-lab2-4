@@ -30,6 +30,8 @@ ch: pointer la cheltuiala cautata
 */
 void destroyCheltuiala(cheltuiala* ch);
 
+cheltuiala copyCh(cheltuiala* c);
+
 /*
 Testeaza crearea si distrugerea
 */
