@@ -14,11 +14,12 @@ void tests() {
     test_validate();
     test_delete_cheltuiala();
     testAddCh();
+    test_mod();
 
 
     //test_add_cheltuiala_srv();
     //test_find_cheltuieli();
-    //test_mod();
+    
 }
 
 void buget() {

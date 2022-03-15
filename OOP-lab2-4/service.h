@@ -56,4 +56,6 @@ Testeaza adaugarea unei cheluieli
 */
 void testAddCh();
 
+void test_mod();
+
 #endif // !SERVICE_H_

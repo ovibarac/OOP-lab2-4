@@ -155,4 +155,5 @@ void test_delete_cheltuiala() {
 	assert(l.lg == 1);
 	l.elems = deleteCheltuiala(&l, &ch);
 	assert(l.lg == 0);
+	destroy(&l);
 }

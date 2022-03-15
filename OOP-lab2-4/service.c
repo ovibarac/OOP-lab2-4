@@ -60,6 +60,7 @@ void mod(cheltuiala* ch, int new_zi, int new_suma, char new_tip[]) {
 			ch->zi = new_zi;
 			ch->suma = new_suma;
 			size_t nrC = strlen(new_tip) + 1;
+			
 			strcpy_s(ch->tip, nrC, new_tip);
 		}
 	}
@@ -155,25 +156,21 @@ void testAddCh() {
 	
 	destroyBuget(&b);
 }
-/*
+
 void test_mod() {
+	Buget b = createBuget();
+
+	addCheltuiala(&b, 1, 2, "mancare");
+	cheltuiala* ch = findCheltuiala(&b.allCh, 1, 2, "mancare");
+	mod(ch, 5, 6, "altele");
+	assert(ch->zi == 5);
+	assert(ch->suma == 6);
+	assert(strcmp(ch->tip, "altele") == 0);
+
+	ch = findCheltuiala(&b.allCh, 7, 8, "mancare");
+	assert(ch == NULL);
+
+	destroyBuget(&b);
 	
-	char errors[5][100];
-	int nr_err = 0;
-	int zi = 2;
-	int suma = 20;
-	char tip[20];
-	strcpy_s(tip, 19, "mancare");
-	validate(zi, suma, tip, errors, &nr_err);
 
-	add(zi, suma, tip);
-	cheltuiala* ch = get_list();
-	int n = get_size();
-
-	cheltuiala* fc = find_cheltuiala(zi, suma, tip);
-	mod(zi, suma, tip, 3, 3, "altele");
-	assert(fc->zi == 3);
-	assert(fc->suma == 3);
-	assert(strcmp(fc->tip, "altele") == 0);
-
-}*/
+}
