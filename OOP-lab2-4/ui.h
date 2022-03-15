@@ -9,6 +9,8 @@ void add_ui(Buget* b);
 
 void mod_ui(Buget* b);
 
+void delete_ui(Buget* b);
+
 void print_menu(Buget* b);
 
 void print_list(Buget* b);

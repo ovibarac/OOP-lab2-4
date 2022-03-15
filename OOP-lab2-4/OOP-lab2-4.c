@@ -11,14 +11,9 @@ void tests() {
     */
     testCreateDestroy();
     testCreateList();
-    
+    test_validate();
 
-    //test_get_cheltuieli();
-    //test_get_lungime();
-    //test_add_cheltuiala();
-    //test_validate();
-    //test_get_cheltuieli_srv();
-    //test_get_lungime_srv();
+
     //test_add_cheltuiala_srv();
     //test_find_cheltuieli();
     //test_mod();
@@ -37,13 +32,18 @@ void buget() {
         }
         else if (cmd == 2) {
             mod_ui(&b);
-        }/*
+        }
+        else if (cmd == 3) {
+            delete_ui(&b);
+        }
+        else if (cmd == 4) {
+            print_list(&b);
+        }
+        /*
         else if (cmd == 3) {
             filtrare_prop(&b);
         }*/
-        else if (cmd == 4) {
-            print_list(&b);
-        }/*
+        /*
         else if (cmd == 0) {
             return;
         }*/

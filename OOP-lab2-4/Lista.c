@@ -75,6 +75,23 @@ void ensureCapacity(Lista* l) {
 	l->cp = newCapacity;
 }
 
+void deleteCheltuiala(Lista* l, cheltuiala* ch) {
+	/*
+	Sterge o cheltuiala
+	l: lista
+	ch: pointer la cheltuiala care se va sterge
+	*/
+	ElemType* nElems = malloc(sizeof(ElemType) * l->cp);
+	//copy elems
+	for (int i = 0; i < l->lg; i++) {
+		if(&(l->elems[i]) != ch)
+			nElems[i] = l->elems[i];
+	}
+	//dealocate old vector
+	free(l->elems);
+	l->elems = nElems;
+}
+
 void add(Lista* l, ElemType el) {
 	/*
 	Add element into the list

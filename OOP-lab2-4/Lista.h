@@ -32,6 +32,13 @@ return: pointer la cheltuiala, cheltuiala gasita
 cheltuiala* findCheltuiala(Lista* l, int zi, int suma, char* tip);
 
 /*
+Sterge o cheltuiala
+l: lista
+ch: pointer la cheltuiala care se va sterge
+*/
+void deleteCheltuiala(Lista* l, cheltuiala* ch);
+
+/*
 Returneaza lungimea listei
 */
 int size(Lista* l);
