@@ -43,22 +43,22 @@ void addCheltuiala(Buget* b, int zi, int suma, char tip[]) {
 	}
 	else {for (int i = 0; i < nr_err; i++) {printf("%s\n", errors[i]);}}
 }
-/*
-void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[]) {
+
+void mod(cheltuiala* ch, int new_zi, int new_suma, char new_tip[]) {
 	
 	int nr_err = 0;
 	char errors[5][100];
 	validate(new_zi, new_suma, new_tip, errors, &nr_err);
 	if (nr_err == 0) {
-		cheltuiala* ch = find_cheltuiala(zi, suma, tip);
 		if (ch != NULL) {
 			ch->zi = new_zi;
 			ch->suma = new_suma;
-			strcpy_s(ch->tip, 19, new_tip);
+			size_t nrC = strlen(new_tip) + 1;
+			strcpy_s(ch->tip, nrC, new_tip);
 		}
 	}
 	else { for (int i = 0; i < nr_err; i++) { printf("%s\n", errors[i]); } }
-}*/
+}
 
 /*
 void testAddCh() {

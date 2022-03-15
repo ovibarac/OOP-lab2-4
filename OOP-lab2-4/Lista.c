@@ -22,6 +22,23 @@ int size(Lista* l) {
 	return l->lg;
 }
 
+cheltuiala* findCheltuiala(Lista* l, int zi, int suma, char * tip) {
+	/*
+	Gaseste o cheltuiala
+	l: lista
+	zi: int > 0, ziua  in care s-a efectuat cheltuiala
+	suma: int > 0, suma cheltuielii
+	tip: sir caractere, tipul cheltuielii "mancare, transport, telefon&internet, inbracaminte, altele"
+	return: pointer la cheltuiala, cheltuiala gasita
+	*/
+	cheltuiala* rez = NULL;
+	for (int i = 0; i < l->lg; i++) {
+		if (l->elems[i].zi == zi && l->elems[i].suma == suma && strcmp(l->elems[i].tip, tip) == 0) {
+			rez = &(l->elems[i]);
+		}
+	}
+	return rez;
+}
 
 void destroy(Lista* l) {
 	/*	

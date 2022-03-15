@@ -22,6 +22,16 @@ Destroy list
 void destroy(Lista* l);
 
 /*
+Gaseste o cheltuiala
+l: lista
+zi: int > 0, ziua  in care s-a efectuat cheltuiala
+suma: int > 0, suma cheltuielii
+tip: sir caractere, tipul cheltuielii "mancare, transport, telefon&internet, inbracaminte, altele"
+return: pointer la cheltuiala, cheltuiala gasita
+*/
+cheltuiala* findCheltuiala(Lista* l, int zi, int suma, char* tip);
+
+/*
 Returneaza lungimea listei
 */
 int size(Lista* l);

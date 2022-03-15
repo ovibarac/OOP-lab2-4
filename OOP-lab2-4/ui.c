@@ -8,16 +8,15 @@ void print_menu(Buget* b) {
 	printf("4. Afiseaza lista\n");
 	printf("0. Exit\n");
 }
-/*
+
 void print_list(Buget* b) {
-	cheltuiala* ch = get_list();
-	int n = get_size();
-	if (n != 0) {
-		for (int i = 0; i < n; i++) {
-			printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, ch[i].zi, ch[i].suma, ch[i].tip);
-		}
+	/*
+	Printeaza lista
+	*/
+	for (int i = 0; i < &b->allCh.lg; i++) {
+		printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, b->allCh.elems[i].zi, b->allCh.elems[i].suma, b->allCh.elems[i].tip);
 	}
-}*/
+}
 
 void add_ui(Buget* b) {
 	/*
@@ -33,7 +32,7 @@ void add_ui(Buget* b) {
 	scanf_s("%s", tip, 19);
 	addCheltuiala(b, zi, suma, tip);
 }
-/*
+
 void mod_ui(Buget* b) {
 	int zi, suma;
 	char tip[20];
@@ -52,9 +51,16 @@ void mod_ui(Buget* b) {
 	scanf_s("%d", &new_suma);
 	printf("Noul tip: ");
 	scanf_s("%s", new_tip, 19);
-	mod(zi, suma, tip, new_zi, new_suma, new_tip);
-}
 
+	cheltuiala* ch = findCheltuiala(&b->allCh, zi, suma, tip);
+	if (ch == NULL) {
+		printf("Cheltuiala not found");
+	}
+	else {
+		mod(ch, new_zi, new_suma, new_tip);
+	}
+}
+/*
 void filtrare_prop(Buget* b) {
 	printf("Proprietatea:\n");
 	printf("1. Zi\n");

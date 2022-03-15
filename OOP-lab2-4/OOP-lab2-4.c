@@ -35,15 +35,15 @@ void buget() {
         if (cmd == 1) {
             add_ui(&b);
         }
-        /*else if (cmd == 2) {
+        else if (cmd == 2) {
             mod_ui(&b);
-        }
+        }/*
         else if (cmd == 3) {
             filtrare_prop(&b);
-        }
+        }*/
         else if (cmd == 4) {
             print_list(&b);
-        }
+        }/*
         else if (cmd == 0) {
             return;
         }*/

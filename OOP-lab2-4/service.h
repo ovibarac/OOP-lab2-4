@@ -30,14 +30,12 @@ void addCheltuiala(Buget* b, int zi, int suma, char tip[]);
 
 /*
 Modifica o cheltuiala
-zi: int > 0, ziua  cheltuielii cautate
-suma: int > 0, suma cheltuielii cautate
-tip: sir caractere, tipul cheltuielii cautate
+ch: pointer la cheltuiala de modificat
 new_zi: int > 0, ziua  modificata
 new_suma: int > 0, suma modificata
 new_tip: sir caractere, tipul modificat
 */
-void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[]);
+void mod(cheltuiala* ch, int new_zi, int new_suma, char new_tip[]);
 
 /*
 Testeaza adaugarea unei cheluieli
