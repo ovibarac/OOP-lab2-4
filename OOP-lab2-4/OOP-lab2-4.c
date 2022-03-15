@@ -15,6 +15,7 @@ void tests() {
     test_delete_cheltuiala();
     testAddCh();
     test_mod();
+    test_sort();
 
 
     //test_add_cheltuiala_srv();

@@ -58,4 +58,6 @@ void testAddCh();
 
 void test_mod();
 
+void test_sort();
+
 #endif // !SERVICE_H_

@@ -112,6 +112,7 @@ Lista sortByTip(Buget* b, int reverse) {
 	Sorteaza lista dupa tip
 	l: pointer la lista
 	reverse: 1 daca se sorteaza descrescator, 0 altfel
+	return: lista sortata
 	*/
 	Lista l = copyList(&b->allCh);
 
@@ -145,6 +146,36 @@ Lista sortByTip(Buget* b, int reverse) {
 	}
 
 	return l;
+}
+
+void test_sort() {
+	Buget b = createBuget();
+	addCheltuiala(&b, 1, 2, "altele");
+	addCheltuiala(&b, 2, 20, "mancare");
+	addCheltuiala(&b, 4, 45, "transport");
+	addCheltuiala(&b, 3, 20, "mancare");
+
+	Lista l = sortByTip(&b, 0);
+	assert(l.elems[0].zi == 1);
+	assert(l.elems[0].suma == 2);
+	assert(strcmp(l.elems[0].tip, "altele") == 0);
+
+	l = sortByTip(&b, 1);
+	assert(l.elems[0].zi == 4);
+	assert(l.elems[0].suma == 45);
+	assert(strcmp(l.elems[0].tip, "transport") == 0);
+
+	l = sortBySuma(&b, 0);
+	assert(l.elems[0].zi == 1);
+	assert(l.elems[0].suma == 2);
+	assert(strcmp(l.elems[0].tip, "altele") == 0);
+
+	l = sortBySuma(&b, 1);
+	assert(l.elems[0].zi == 4);
+	assert(l.elems[0].suma == 45);
+	assert(strcmp(l.elems[0].tip, "transport") == 0);
+
+	destroyBuget(&b);
 }
 
 void testAddCh() {
