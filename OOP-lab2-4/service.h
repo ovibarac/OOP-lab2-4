@@ -54,8 +54,6 @@ Lista sortByTip(Buget* b, int reverse);
 /*
 Testeaza adaugarea unei cheluieli
 */
-void test_add_cheltuiala_srv();
-
-void test_mod();
+void testAddCh();
 
 #endif // !SERVICE_H_

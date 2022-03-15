@@ -146,29 +146,15 @@ Lista sortByTip(Buget* b, int reverse) {
 	return l;
 }
 
-/*
 void testAddCh() {
 	Buget b = createBuget();
 	addCheltuiala(&b, 1, 2, "altele");
-	addCheltuiala(&b, "a2", "b2", 20);
-	MyList filtered = getAllPet(&store, NULL);
-	assert(size(&filtered) == 2);
-	destroy(&filtered);
-
-	filtered = getAllPet(&store, "a2");
-	assert(size(&filtered) == 1);
-	destroy(&filtered);
-
-	filtered = getAllPet(&store, "2");
-	assert(size(&filtered) == 1);
-	destroy(&filtered);
-
-	filtered = getAllPet(&store, "a");
-	assert(size(&filtered) == 2);
-	destroy(&filtered);
-
-	destroyStore(&store);
-}*/
+	addCheltuiala(&b, 2, 20, "mancare");
+	
+	assert(size(&b.allCh) == 2);
+	
+	destroyBuget(&b);
+}
 /*
 void test_mod() {
 	

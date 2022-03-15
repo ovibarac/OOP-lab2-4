@@ -13,6 +13,7 @@ void tests() {
     testCreateList();
     test_validate();
     test_delete_cheltuiala();
+    testAddCh();
 
 
     //test_add_cheltuiala_srv();
