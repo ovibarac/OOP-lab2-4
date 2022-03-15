@@ -12,6 +12,7 @@ void tests() {
     testCreateDestroy();
     testCreateList();
     test_validate();
+    test_delete_cheltuiala();
 
 
     //test_add_cheltuiala_srv();

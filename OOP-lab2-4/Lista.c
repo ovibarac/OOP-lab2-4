@@ -75,7 +75,7 @@ void ensureCapacity(Lista* l) {
 	l->cp = newCapacity;
 }
 
-void deleteCheltuiala(Lista* l, cheltuiala* ch) {
+cheltuiala*  deleteCheltuiala(Lista* l, cheltuiala* ch) {
 	/*
 	Sterge o cheltuiala
 	l: lista
@@ -83,13 +83,19 @@ void deleteCheltuiala(Lista* l, cheltuiala* ch) {
 	*/
 	ElemType* nElems = malloc(sizeof(ElemType) * l->cp);
 	//copy elems
+	int k = 0;
 	for (int i = 0; i < l->lg; i++) {
-		if(&(l->elems[i]) != ch)
-			nElems[i] = l->elems[i];
+		if (&(l->elems[i]) != ch) {
+			nElems[k] = l->elems[i];
+			k++;
+		}
+
 	}
 	//dealocate old vector
 	free(l->elems);
 	l->elems = nElems;
+	l->lg -= 1;
+	return nElems;
 }
 
 void add(Lista* l, ElemType el) {
@@ -128,4 +134,16 @@ void testCreateList() {
 	Lista l = createEmpty();
 	assert(size(&l) == 0);
 	destroy(&l);
+}
+
+void test_delete_cheltuiala() {
+	/*
+	Testeaza stergerea unei cheltuieli
+	*/
+	Lista l = createEmpty();
+	cheltuiala ch = createCheltuiala(1, 1, "mancare");
+	add(&l, ch);
+	assert(l.lg == 1);
+	l.elems = deleteCheltuiala(&l, &ch);
+	assert(l.lg == 0);
 }

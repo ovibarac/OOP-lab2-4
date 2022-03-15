@@ -14,7 +14,7 @@ void print_list(Buget* b) {
 	/*
 	Printeaza lista
 	*/
-	for (int i = 0; i < &b->allCh.lg; i++) {
+	for (int i = 0; i < b->allCh.lg; i++) {
 		if (&(b->allCh.elems[i]) != NULL)
 			printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, b->allCh.elems[i].zi, b->allCh.elems[i].suma, b->allCh.elems[i].tip);
 	}
@@ -78,7 +78,7 @@ void delete_ui(Buget* b) {
 		printf("Cheltuiala not found");
 	}
 	else {
-		deleteCheltuiala(&b->allCh, ch);
+		b->allCh.elems = deleteCheltuiala(&b->allCh, ch);
 	}
 }
 /*

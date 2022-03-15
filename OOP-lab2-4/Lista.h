@@ -36,7 +36,7 @@ Sterge o cheltuiala
 l: lista
 ch: pointer la cheltuiala care se va sterge
 */
-void deleteCheltuiala(Lista* l, cheltuiala* ch);
+cheltuiala* deleteCheltuiala(Lista* l, cheltuiala* ch);
 
 /*
 Returneaza lungimea listei
@@ -66,6 +66,11 @@ ElemType set(Lista* l, int poz, cheltuiala p);
 Testeaza crearea listei
 */
 void testCreateList();
+
+/*
+Testeaza crearea listei
+*/
+void test_delete_cheltuiala();
 
 #endif // !LISTA_H
 
