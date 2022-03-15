@@ -1,13 +1,33 @@
-#include "repo.h"
 #include "validator.h"
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
 #include "cheltuiala.h"
+#include "service.h"
+#include "Lista.h"
 
-void add(int zi, int suma, char tip[]) {
+Buget createBuget(){
+	/*
+	Creeaza un nou buget
+	return: Buget
+	*/
+	Buget rez;
+	rez.allCh = createEmpty();
+	return rez;
+}
+
+void destroyBuget(Buget* b) {
+	/*
+	Distruge un buget
+	b: pointer la buget
+	*/
+	destroy(&b->allCh);
+}
+
+void addCheltuiala(Buget* b, int zi, int suma, char tip[]) {
 	/*
 	Adauga o noua cheltuiala si valideaza
+	b: pointer la buget
 	zi: int > 0, ziua  in care s-a efectuat cheltuiala
 	suma: int > 0, suma cheltuielii
 	tip: sir caractere, tipul cheltuielii "mancare, transport, telefon&internet, inbracaminte, altele"
@@ -18,21 +38,14 @@ void add(int zi, int suma, char tip[]) {
 	char errors[5][100];
 	validate(zi, suma, tip, errors, &nr_err);
 	if (nr_err == 0) {
-		add_cheltuiala(zi, suma, tip);
+		cheltuiala ch = createCheltuiala(zi, suma, tip);
+		add(&b->allCh, ch);
 	}
 	else {for (int i = 0; i < nr_err; i++) {printf("%s\n", errors[i]);}}
 }
-
+/*
 void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[]) {
-	/*
-	Modifica o cheltuiala
-	zi: int > 0, ziua  cheltuielii cautate
-	suma: int > 0, suma cheltuielii cautate
-	tip: sir caractere, tipul cheltuielii cautate
-	new_zi: int > 0, ziua  modificata
-	new_suma: int > 0, suma modificata
-	new_tip: sir caractere, tipul modificat
-	*/
+	
 	int nr_err = 0;
 	char errors[5][100];
 	validate(new_zi, new_suma, new_tip, errors, &nr_err);
@@ -44,68 +57,35 @@ void mod(int zi, int suma, char tip[], int new_zi, int new_suma, char new_tip[])
 			strcpy_s(ch->tip, 19, new_tip);
 		}
 	}
-	else {for (int i = 0; i < nr_err; i++) {printf("%s\n", errors[i]);}}
-}
+	else { for (int i = 0; i < nr_err; i++) { printf("%s\n", errors[i]); } }
+}*/
 
-cheltuiala * get_list() {
-	/*
-	Returneaza lista de cheltuieli
-	rtype: pointer la cheltuiala
-	*/
-	return get_cheltuieli();
-}
+/*
+void testAddCh() {
+	Buget b = createBuget();
+	addCheltuiala(&b, 1, 2, "altele");
+	addCheltuiala(&b, "a2", "b2", 20);
+	MyList filtered = getAllPet(&store, NULL);
+	assert(size(&filtered) == 2);
+	destroy(&filtered);
 
-int get_size() {
-	/*
-	Returneaza lungimea listei de cheltuieli
-	rtype: int >= 0
-	*/
-	return get_lungime();
-}
+	filtered = getAllPet(&store, "a2");
+	assert(size(&filtered) == 1);
+	destroy(&filtered);
 
-void test_get_cheltuieli_srv() {
-	/*
-	Testeaza obtinerea listei
-	*/
-	assert(get_cheltuieli() == get_list());
-}
+	filtered = getAllPet(&store, "2");
+	assert(size(&filtered) == 1);
+	destroy(&filtered);
 
-void test_get_lungime_srv() {
-	/*
-	Testeaza obtinerea lungimii listei
-	*/
-	int n1 = get_size();
-	int n2 = get_lungime();
-	assert(n1 == n2);
-}
+	filtered = getAllPet(&store, "a");
+	assert(size(&filtered) == 2);
+	destroy(&filtered);
 
-void test_add_cheltuiala_srv() {
-	/*
-	Testeaza adaugarea unei cheluieli
-	*/
-	char errors[5][100];
-	int nr_err = 0;
-	int zi = 2;
-	int suma = 20;
-	char tip[20];
-
-	strcpy_s(tip, 19, "mancare");
-	validate(zi, suma, tip, errors, &nr_err);
-	assert(nr_err == 0);
-
-	add(zi, suma, tip);
-	cheltuiala* ch = get_list();
-	int n = get_size();
-
-	assert(ch[n - 1].zi == 2);
-	assert(ch[n - 1].suma == 20);
-	assert(strcmp(ch[n - 1].tip, "mancare") == 0);
-}
-
+	destroyStore(&store);
+}*/
+/*
 void test_mod() {
-	/*
-	Testeaza modificarea unei cheltuieli
-	*/
+	
 	char errors[5][100];
 	int nr_err = 0;
 	int zi = 2;
@@ -123,4 +103,5 @@ void test_mod() {
 	assert(fc->zi == 3);
 	assert(fc->suma == 3);
 	assert(strcmp(fc->tip, "altele") == 0);
-}
+
+}*/

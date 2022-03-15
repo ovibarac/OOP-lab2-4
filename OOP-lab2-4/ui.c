@@ -1,31 +1,15 @@
 #include "service.h"
 #include <stdio.h>
 
-void generate() {
-	/*
-	Genereaza o lista de cheltuieli
-	*/
-	add(3, 20, "mancare");
-	add(5, 20, "altele");
-	add(15, 200, "transport");
-	add(20, 19, "mancare");
-	add(1, 200, "transport");
-	add(4, 50, "altele");
-
-}
-
-void print_menu() {
+void print_menu(Buget* b) {
 	printf("1. Adaugare cheltuiala\n");
 	printf("2. Modificare cheltuiala\n");
 	printf("3. Filtrare dupa proprietate (zi, suma, tip)\n");
 	printf("4. Afiseaza lista\n");
 	printf("0. Exit\n");
 }
-
-void print_list() {
-	/*
-	Printeaza lista curenta de cheltuieli
-	*/
+/*
+void print_list(Buget* b) {
 	cheltuiala* ch = get_list();
 	int n = get_size();
 	if (n != 0) {
@@ -33,9 +17,9 @@ void print_list() {
 			printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, ch[i].zi, ch[i].suma, ch[i].tip);
 		}
 	}
-}
+}*/
 
-void add_ui() {
+void add_ui(Buget* b) {
 	/*
 	UI pentru adaugarea unei cheltuieli
 	*/
@@ -47,13 +31,10 @@ void add_ui() {
 	scanf_s("%d", &suma);
 	printf("Tip: ");
 	scanf_s("%s", tip, 19);
-	add(zi, suma, tip);
+	addCheltuiala(b, zi, suma, tip);
 }
-
-void mod_ui() {
-	/*
-	UI pentru modificarea unei cheltuieli
-	*/
+/*
+void mod_ui(Buget* b) {
 	int zi, suma;
 	char tip[20];
 	printf("Zi: ");
@@ -74,10 +55,7 @@ void mod_ui() {
 	mod(zi, suma, tip, new_zi, new_suma, new_tip);
 }
 
-void filtrare_prop() {
-	/*
-	Filtrare lista dupa proprietate
-	*/
+void filtrare_prop(Buget* b) {
 	printf("Proprietatea:\n");
 	printf("1. Zi\n");
 	printf("2. Suma\n");
@@ -124,28 +102,4 @@ void filtrare_prop() {
 		}
 	}
 }
-
-
-void run() {
-
-	while (1) {
-		print_menu();
-		printf("\nGive command: ");
-		int cmd = 0;
-		scanf_s("%d", &cmd);
-
-		if (cmd == 1) {
-			add_ui();
-		}
-		else if (cmd == 2) {
-			mod_ui();
-		}
-		else if (cmd == 4) {
-			print_list();
-		}
-		else if (cmd == 0) {
-			return;
-		}
-		printf('\n');
-	}
-}
+*/

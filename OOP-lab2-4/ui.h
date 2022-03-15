@@ -5,16 +5,14 @@
 
 void generate();
 
-void run();
+void add_ui(Buget* b);
 
-void add_ui();
+//void mod_ui(Buget* b);
 
-void mod_ui();
+void print_menu(Buget* b);
 
-void print_menu();
+//void print_list(Buget* b);
 
-void print_list();
-
-void filtrare_prop();
+//void filtrare_prop(Buget* b);
 
 #endif // !UI_H_

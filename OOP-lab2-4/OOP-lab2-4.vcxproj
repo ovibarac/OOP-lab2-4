@@ -43,7 +43,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -140,15 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cheltuiala.c" />
+    <ClCompile Include="Lista.c" />
     <ClCompile Include="OOP-lab2-4.c" />
-    <ClCompile Include="repo.c" />
     <ClCompile Include="service.c" />
     <ClCompile Include="ui.c" />
     <ClCompile Include="validator.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cheltuiala.h" />
-    <ClInclude Include="repo.h" />
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="service.h" />
     <ClInclude Include="ui.h" />
     <ClInclude Include="validator.h" />
