@@ -81,7 +81,7 @@ void delete_ui(Buget* b) {
 		b->allCh.elems = deleteCheltuiala(&b->allCh, ch);
 	}
 }
-/*
+
 void filtrare_prop(Buget* b) {
 	printf("Proprietatea:\n");
 	printf("1. Zi\n");
@@ -93,40 +93,27 @@ void filtrare_prop(Buget* b) {
 		printf("Zi: ");
 		int z = 0;
 		scanf_s("%d", &z);
-		cheltuiala* ch = get_list();
-		int n = get_size();
-		if (n != 0) {
-			for (int i = 0; i < n; i++) {
-				if(ch[i].zi == z)
-					printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, ch[i].zi, ch[i].suma, ch[i].tip);
-			}
+		for (int i = 0; i < b->allCh.lg; i++) {
+			if (&(b->allCh.elems[i]) != NULL && b->allCh.elems[i].zi == z)
+				printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, b->allCh.elems[i].zi, b->allCh.elems[i].suma, b->allCh.elems[i].tip);
 		}
 	}
 	else if (c == 2) {
 		printf("Suma: ");
 		int z = 0;
 		scanf_s("%d", &z);
-		cheltuiala* ch = get_list();
-		int n = get_size();
-		if (n != 0) {
-			for (int i = 0; i < n; i++) {
-				if (ch[i].suma == z)
-					printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, ch[i].zi, ch[i].suma, ch[i].tip);
-			}
+		for (int i = 0; i < b->allCh.lg; i++) {
+			if (&(b->allCh.elems[i]) != NULL && b->allCh.elems[i].suma == z)
+				printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, b->allCh.elems[i].zi, b->allCh.elems[i].suma, b->allCh.elems[i].tip);
 		}
 	}
 	else if (c == 3) {
 		printf("Tip: ");
 		char tip[20];
 		scanf_s("%s", tip, 19);
-		cheltuiala* ch = get_list();
-		int n = get_size();
-		if (n != 0) {
-			for (int i = 0; i < n; i++) {
-				if (strcmp(ch[i].tip, tip) == 0)
-					printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, ch[i].zi, ch[i].suma, ch[i].tip);
-			}
+		for (int i = 0; i < b->allCh.lg; i++) {
+			if (&(b->allCh.elems[i]) != NULL && strcmp(b->allCh.elems[i].tip, tip) == 0)
+				printf("%d. Zi: %d, Suma: %d, Tip: %s\n", i, b->allCh.elems[i].zi, b->allCh.elems[i].suma, b->allCh.elems[i].tip);
 		}
 	}
 }
-*/

@@ -40,10 +40,9 @@ void buget() {
         else if (cmd == 4) {
             print_list(&b);
         }
-        /*
-        else if (cmd == 3) {
+        else if (cmd == 5) {
             filtrare_prop(&b);
-        }*/
+        }
         /*
         else if (cmd == 0) {
             return;

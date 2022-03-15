@@ -15,6 +15,6 @@ void print_menu(Buget* b);
 
 void print_list(Buget* b);
 
-//void filtrare_prop(Buget* b);
+void filtrare_prop(Buget* b);
 
 #endif // !UI_H_
