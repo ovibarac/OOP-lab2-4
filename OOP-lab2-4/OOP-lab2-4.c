@@ -16,11 +16,6 @@ void tests() {
     testAddCh();
     test_mod();
     test_sort();
-
-
-    //test_add_cheltuiala_srv();
-    //test_find_cheltuieli();
-    
 }
 
 void buget() {
@@ -59,7 +54,7 @@ void buget() {
 int main()
 {
     tests();
-    buget();
+    //buget();
 }
 
 
