@@ -1,5 +1,6 @@
 #include "service.h"
 #include <stdio.h>
+#include <string.h>
 
 void generate(Buget* b) {
 	/*
@@ -13,14 +14,13 @@ void generate(Buget* b) {
 	addCheltuiala(b, 4, 50, "altele");
 }
 
-void print_menu(Buget* b) {
+void print_menu() {
 	printf("1. Adaugare cheltuiala\n");
 	printf("2. Modificare cheltuiala\n");
 	printf("3. Stergere cheltuiala\n");
 	printf("4. Afiseaza lista\n");
 	printf("5. Filtrare dupa proprietate (zi, suma, tip)\n");
 	printf("6. Sortare\n");
-	printf("0. Exit\n");
 }
 
 void print_list(Buget* b) {

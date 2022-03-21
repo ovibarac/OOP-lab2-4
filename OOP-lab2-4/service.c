@@ -73,37 +73,7 @@ Lista sortBySuma(Buget* b, int reverse) {
 	l: pointer la lista
 	reverse: 1 daca se sorteaza descrescator, 0 altfel
 	*/
-	Lista l = copyList(&b->allCh);
-
-	if (reverse == 0) {
-		int i, j;
-		for (i = 0; i < size(&l); i++) {
-			for (j = i + 1; j < size(&l); j++) {
-				cheltuiala p1 = get(&l, i);
-				cheltuiala p2 = get(&l, j);
-				if (p1.suma > p2.suma) {
-					//interschimbam
-					set(&l, i, p2);
-					set(&l, j, p1);
-				}
-			}
-		}
-	}
-	else {
-		int i, j;
-		for (i = 0; i < size(&l); i++) {
-			for (j = i + 1; j < size(&l); j++) {
-				cheltuiala p1 = get(&l, i);
-				cheltuiala p2 = get(&l, j);
-				if (p1.suma < p2.suma) {
-					//interschimbam
-					set(&l, i, p2);
-					set(&l, j, p1);
-				}
-			}
-		}
-	}
-
+	Lista l = sort(b, cmpSuma, reverse);
 	return l;
 }
 
@@ -114,38 +84,54 @@ Lista sortByTip(Buget* b, int reverse) {
 	reverse: 1 daca se sorteaza descrescator, 0 altfel
 	return: lista sortata
 	*/
-	Lista l = copyList(&b->allCh);
+	Lista l = sort(b, cmpTip, reverse);
+	return l;
+}
 
+Lista sort(Buget* b, FunctieComparare cmpF, int reverse) {
+	Lista l = copyList(&b->allCh);
+	int i, j;
 	if (reverse == 0) {
-		int i, j;
 		for (i = 0; i < size(&l); i++) {
 			for (j = i + 1; j < size(&l); j++) {
-				cheltuiala p1 = get(&l, i);
-				cheltuiala p2 = get(&l, j);
-				if (strcmp(p1.tip, p2.tip) > 0) {
-					//interschimbam
-					set(&l, i, p2);
-					set(&l, j, p1);
+				cheltuiala c1 = get(&l, i);
+				cheltuiala c2 = get(&l, j);
+				if (cmpF(&c1, &c2) > 0) {
+					set(&l, i, c2);
+					set(&l, j, c1);
 				}
 			}
 		}
 	}
 	else {
-		int i, j;
 		for (i = 0; i < size(&l); i++) {
 			for (j = i + 1; j < size(&l); j++) {
-				cheltuiala p1 = get(&l, i);
-				cheltuiala p2 = get(&l, j);
-				if (strcmp(p1.tip, p2.tip) < 0) {
-					//interschimbam
-					set(&l, i, p2);
-					set(&l, j, p1);
+				cheltuiala c1 = get(&l, i);
+				cheltuiala c2 = get(&l, j);
+				if (cmpF(&c1, &c2) < 0) {
+					set(&l, i, c2);
+					set(&l, j, c1);
 				}
 			}
 		}
 	}
-
 	return l;
+}
+
+int cmpSuma(cheltuiala* c1, cheltuiala* c2) {
+	if (c1->suma > c2->suma) {
+		return 1;
+	}
+	else if (c1->suma == c2->suma) {
+		return 0;
+	}
+	else {
+		return -1;
+	}
+}
+
+int cmpTip(cheltuiala* c1, cheltuiala* c2) {
+	return strcmp(c1->tip, c2->tip);
 }
 
 void test_sort() {
@@ -154,6 +140,7 @@ void test_sort() {
 	addCheltuiala(&b, 2, 20, "mancare");
 	addCheltuiala(&b, 4, 45, "transport");
 	addCheltuiala(&b, 3, 20, "mancare");
+
 
 	Lista l = sortByTip(&b, 0);
 	assert(l.elems[0].zi == 1);
@@ -170,11 +157,11 @@ void test_sort() {
 	assert(l.elems[0].suma == 2);
 	assert(strcmp(l.elems[0].tip, "altele") == 0);
 
-	l = sortBySuma(&b, 1);
+	l = sortByTip(&b, 1);
 	assert(l.elems[0].zi == 4);
 	assert(l.elems[0].suma == 45);
 	assert(strcmp(l.elems[0].tip, "transport") == 0);
-
+	destroy(&l);
 	destroyBuget(&b);
 }
 

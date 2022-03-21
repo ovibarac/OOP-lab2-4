@@ -1,3 +1,7 @@
+#define _CRTDBG_MAP_ALLOC  
+#include <stdlib.h>  
+#include <crtdbg.h>
+
 #include <stdio.h>
 #include "cheltuiala.h"
 #include "service.h"
@@ -44,9 +48,6 @@ void buget() {
         else if (cmd == 6) {
             sortare_ui(&b);
         }
-        else if (cmd == 0) {
-            return;
-        }
         printf("\n");
     }
 }
@@ -54,7 +55,9 @@ void buget() {
 int main()
 {
     tests();
-    //buget();
+    buget();
+    _CrtDumpMemoryLeaks();
+    return 0;
 }
 
 

@@ -51,6 +51,12 @@ reverse: 1 daca se sorteaza descrescator, 0 altfel
 */
 Lista sortByTip(Buget* b, int reverse);
 
+typedef int(*FunctieComparare)(cheltuiala* o1, cheltuiala* o2);
+int cmpTip(cheltuiala* c1, cheltuiala* c2);
+int cmpSuma(cheltuiala* c1, cheltuiala* c2);
+
+Lista sort(Buget* b, FunctieComparare cmpF, int reverse);
+
 /*
 Testeaza adaugarea unei cheluieli
 */
